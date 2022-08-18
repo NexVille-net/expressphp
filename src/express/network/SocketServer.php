@@ -26,7 +26,7 @@ class SocketServer extends Addressable {
 	}
 	
 	public function accept(): ?SocketClient {
-		if ($c = socket_accept($this->socket)) return SocketClient::fromSocket($c);
+		if ($c = @socket_accept($this->socket)) return SocketClient::fromSocket($c);
 		return null;
 	}
 }
