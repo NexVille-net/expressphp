@@ -34,6 +34,7 @@ final class App {
 		$sock->start();
 		$this->processor = new Processor($this, $sock);
 		if ($onStart !== null) $onStart();
+		$this->internalStart();
 	}
 	
 	public function stop(): void {
@@ -90,7 +91,7 @@ final class App {
 		}
 	}
 	
-	public function tick(): void {
+	private function tick(): void {
 		$this->processor->tick();
 	}
 	
